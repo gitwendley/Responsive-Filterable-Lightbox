@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Filterable Lightbox Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <!--magnific-popup css cdn js-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+</head>
+<body>
+    <div class="gallery">
+    <ul class="controls">
+        <li class="buttons active" data-filter="All">All</li>
+        <li class="buttons" data-filter="Ice-cream">Ice-cream</li>
+        <li class="buttons" data-filter="Chocolate">Chocolate</li>
+        <li class="buttons" data-filter="Cake">Cake</li> 
+        <li class="buttons" data-filter="Juice">Juice</li>
+        <li class="buttons" data-filter="Sandwich">Sandwich</li>
+    </ul>
+    <div class="image-container">
+        <a href="/images/ice-cream1.jpg" class="image Ice-cream">
+            <img src="/images/ice-cream1.jpg">
+        </a>
+
+        <a href="/images/ice-cream2.jpg" class="image Ice-cream">
+            <img src="/images/ice-cream2.jpg">
+        </a>
+
+        <a href="/images/ice-cream3.jpg" class="image Ice-cream">
+            <img src="/images/ice-cream3.jpg">
+        </a>
+
+        <a href="/images/chocolate1.jpg" class="image Chocolate">
+            <img src="/images/chocolate1.jpg">
+        </a>
+
+        <a href="/images/chocolate2.jpg" class="image Chocolate">
+            <img src="/images/chocolate2.jpg">
+        </a>
+
+        <a href="/images/cake1.jpg" class="image Cake">
+            <img src="/images/cake1.jpg">
+        </a>
+
+        <a href="/images/cake2.jpg" class="image Cake">
+            <img src="/images/cake2.jpg">
+        </a>
+
+        <a href="/images/cake3.jpg" class="image Cake">
+            <img src="/images/cake3.jpg">
+        </a>
+
+        <a href="/images/cake4.jpg" class="image Cake">
+            <img src="/images/cake4.jpg">
+        </a>
+
+        <a href="/images/cake5.jpg" class="image Cake">
+            <img src="/images/cake5.jpg">
+        </a>
+
+        <a href="/images/juice1.jpg" class="image Juice">
+            <img src="/images/juice2.jpg">
+        </a>
+
+        <a href="/images/juice2.jpg" class="image Juice">
+            <img src="/images/juice2.jpg">
+        </a>
+
+        <a href="/images/juice3.jpg" class="image Juice">
+            <img src="/images/juice3.jpg">
+        </a>
+
+
+        <a href="/images/Sandwich1.jpg" class="image Sandwich">
+            <img src="/images/Sandwich1.jpg">
+        </a>
+
+        <a href="/images/Sandwich2.jpg" class="image Sandwich">
+            <img src="/images/Sandwich2.jpg">
+        </a>
+
+        <a href="/images/Sandwich3.jpg" class="image Sandwich">
+            <img src="/images/Sandwich3.jpg">
+        </a>
+
+        <a href="/images/Sandwich4.jpg" class="image Sandwich">
+            <img src="/images/Sandwich4.jpg">
+        </a>
+    </div>
+    </div>
+
+   <!--jquery cdn link-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     
+   <!--magnific popup js cdnjs-->
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+   <script>
+    $(document) .ready(function(){
+         $('.buttons').click(function(){
+           $(this).addClass('active').siblings().removeClass('active');
+
+           var filter =$(this).attr('data-filter')
+
+           if(filter == 'all'){
+            $('.image').show(400);
+           }
+           else{
+            $('.image').not('.'+filter).hide(200);
+            $('.image').filter('.'+filter).show(400);
+           }
+         });
+                
+        $('.gallery').magnificPopup({
+          
+            delegate:'a',
+            type:'image',
+            gallery:{
+                enabled:true
+            }
+        });
+
+        
+    });
+   </script>
+</body>
+</html>
